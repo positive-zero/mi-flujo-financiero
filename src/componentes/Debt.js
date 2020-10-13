@@ -1,0 +1,18 @@
+import React from "react";
+
+function Deuda(propiedades) {
+  return (
+    <li class="debt">
+      <div>
+        <div>
+          {propiedades.person} - ${propiedades.debt}
+        </div>
+        <small>{propiedades.date}</small>
+      </div>
+
+      <button class="secondary-btn">Saldar</button>
+    </li>
+  );
+}
+
+export default Deuda;
