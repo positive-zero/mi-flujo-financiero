@@ -6,7 +6,17 @@ function Movement(propiedades) {
       <span>
         {propiedades.name} - ${propiedades.amount}
       </span>
-      <span class="delete-btn">x</span>
+      <span
+        class="delete-btn"
+        onClick={() =>
+          propiedades.onDelete({
+            name: propiedades.name,
+            amount: propiedades.amount,
+          })
+        }
+      >
+        x
+      </span>
     </li>
   );
 }

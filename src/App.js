@@ -14,8 +14,18 @@ function App() {
     let movementsCopy = [...movements];
     movementsCopy.push({
       amount: Number(amountValue),
-      concept: conceptValue,
+      name: conceptValue,
     });
+    setMovements(movementsCopy);
+  }
+
+  function deleteMovement(movement) {
+    console.log(movement);
+    let movementsCopy = [...movements];
+    const indexToDelete = movementsCopy.findIndex(
+      (m) => m.name === movement.name
+    );
+    movementsCopy.splice(indexToDelete, 1);
     setMovements(movementsCopy);
   }
 
@@ -54,7 +64,10 @@ function App() {
         </div>
 
         <div class="panels">
-          <MovementsPanel movements={movements} />
+          <MovementsPanel
+            movements={movements}
+            onMovementDelete={deleteMovement}
+          />
           <DebtsPanel />
           <SavingsPanel />
         </div>

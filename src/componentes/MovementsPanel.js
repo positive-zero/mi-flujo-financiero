@@ -15,7 +15,12 @@ function MovementsPanel(props) {
         <p>Total de ingresos: ${sum(incomes)}</p>
         <ul>
           {incomes.map((item) => (
-            <Movement amount={item.amount} name={item.concept} />
+            <Movement
+              key={item.name}
+              amount={item.amount}
+              name={item.name}
+              onDelete={props.onMovementDelete}
+            />
           ))}
         </ul>
       </div>
@@ -25,7 +30,12 @@ function MovementsPanel(props) {
         <p>Total de gastos: ${sum(expenses)}</p>
         <ul>
           {expenses.map((item) => (
-            <Movement amount={item.amount} name={item.concept} />
+            <Movement
+              key={item.name}
+              amount={item.amount}
+              name={item.name}
+              onDelete={props.onMovementDelete}
+            />
           ))}
         </ul>
       </div>
