@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import DebtsPanel from "./componentes/DebtsPanel";
 import SavingsPanel from "./componentes/SavingsPanel";
 import MovementsPanel from "./componentes/MovementsPanel";
+import { sum } from "./componentes/MovementsPanel";
 
 function App() {
+  const [conceptValue, setConceptValue] = useState("");
+  const [amountValue, setAmountValue] = useState("");
+  const [movements, setMovements] = useState([]);
+
+  function addMovement() {
+    let movementsCopy = [...movements];
+    movementsCopy.push({
+      amount: Number(amountValue),
+      concept: conceptValue,
+    });
+    setMovements(movementsCopy);
+  }
+
   return (
     <div className="App">
       <nav>
@@ -20,17 +34,27 @@ function App() {
       </nav>
 
       <main class="container">
-        <h2>Tu flujo de efectivo es: $11,280</h2>
+        <h2>Tu flujo de efectivo es: ${sum(movements)}</h2>
         <p>Esta es la cantidad que debes tener libre en tu carteta cada mes.</p>
 
         <div class="main-controls">
-          <input type="text" placeholder="Concepto" />
-          <input type="number" placeholder="Cantidad" />
-          <button>Registrar</button>
+          <input
+            type="text"
+            placeholder="Concepto"
+            value={conceptValue}
+            onChange={(e) => setConceptValue(e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="Cantidad"
+            value={amountValue}
+            onChange={(e) => setAmountValue(e.target.value)}
+          />
+          <button onClick={addMovement}>Registrar</button>
         </div>
 
         <div class="panels">
-          <MovementsPanel />
+          <MovementsPanel movements={movements} />
           <DebtsPanel />
           <SavingsPanel />
         </div>

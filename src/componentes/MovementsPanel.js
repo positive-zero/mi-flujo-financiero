@@ -1,26 +1,32 @@
 import React from "react";
 import Movement from "./Movement";
 
-function MovementsPanel() {
+export const sum = (movements) =>
+  movements.reduce((prev, curr) => prev + curr.amount, 0);
+
+function MovementsPanel(props) {
+  const incomes = props.movements.filter((item) => item.amount > 0);
+  const expenses = props.movements.filter((item) => item.amount < 0);
+
   return (
     <section>
       <div class="movement-group">
         <h2>Ingresos</h2>
-        <p>Total de ingresos: $19,500</p>
+        <p>Total de ingresos: ${sum(incomes)}</p>
         <ul>
-          <Movement amount={15000} name="Salario" />
-          <Movement amount={3400} name="Mesada" />
-          <Movement amount={1200} name="Regalo de tio" />
+          {incomes.map((item) => (
+            <Movement amount={item.amount} name={item.concept} />
+          ))}
         </ul>
       </div>
 
       <div class="movement-group">
         <h2>Gastos</h2>
-        <p>Total de gastos: $8,220</p>
+        <p>Total de gastos: ${sum(expenses)}</p>
         <ul>
-          <Movement amount={-3000} name="Comida" />
-          <Movement amount={-300} name="Uber" />
-          <Movement amount={-300} name="Internet" />
+          {expenses.map((item) => (
+            <Movement amount={item.amount} name={item.concept} />
+          ))}
         </ul>
       </div>
     </section>
