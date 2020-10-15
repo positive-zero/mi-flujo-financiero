@@ -5,10 +5,10 @@ function SavingsPanel() {
   return (
     <section>
       <h2>Alcancías</h2>
-      <div class="column-controls">
+      <div className="column-controls">
         <input type="text" placeholder="Nombre" />
         <input type="number" placeholder="Meta (opcional)" />
-        <button class="secondary-btn">Listo</button>
+        <button className="secondary-btn">Listo</button>
       </div>
       <ul>
         <Saving name="Fondo de emergencias" totalSaved={235555} />

@@ -2,12 +2,14 @@ import React from "react";
 
 function Movement(propiedades) {
   return (
-    <li class={"movement " + (propiedades.amount > 0 ? "income" : "expense")}>
+    <li
+      className={"movement " + (propiedades.amount > 0 ? "income" : "expense")}
+    >
       <span>
         {propiedades.name} - ${propiedades.amount}
       </span>
       <span
-        class="delete-btn"
+        className="delete-btn"
         onClick={() =>
           propiedades.onDelete({
             name: propiedades.name,

@@ -5,23 +5,23 @@ function DebtsPanel() {
   return (
     <section>
       <h2>Deudas</h2>
-      <div class="column-controls">
+      <div className="column-controls">
         <input type="text" placeholder="Persona" />
         <input type="number" placeholder="Cantidad debida" />
         <input type="date" />
-        <button class="secondary-btn">Listo</button>
+        <button className="secondary-btn">Listo</button>
       </div>
       <h3>A favor</h3>
       <ol>
         <Debt date={"7 de octubre"} debt={2344} person={"Alex"} />
         <Debt date={"7 de agosto"} debt={400} person={"Juan"} />
-        <li class="debt">
+        <li className="debt">
           <div>
             <div>Primo alex - $22,000</div>
             <small>05 de octubre</small>
           </div>
 
-          <button class="secondary-btn">Saldar</button>
+          <button className="secondary-btn">Saldar</button>
         </li>
       </ol>
       <h3>Por pagar</h3>

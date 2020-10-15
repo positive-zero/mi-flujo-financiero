@@ -10,7 +10,7 @@ function MovementsPanel(props) {
 
   return (
     <section>
-      <div class="movement-group">
+      <div className="movement-group">
         <h2>Ingresos</h2>
         <p>Total de ingresos: ${sum(incomes)}</p>
         <ul>
@@ -25,7 +25,7 @@ function MovementsPanel(props) {
         </ul>
       </div>
 
-      <div class="movement-group">
+      <div className="movement-group">
         <h2>Gastos</h2>
         <p>Total de gastos: ${sum(expenses)}</p>
         <ul>

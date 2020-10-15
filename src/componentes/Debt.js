@@ -2,7 +2,7 @@ import React from "react";
 
 function Deuda(propiedades) {
   return (
-    <li class="debt">
+    <li className="debt">
       <div>
         <div>
           {propiedades.person} - ${propiedades.debt}
@@ -10,7 +10,7 @@ function Deuda(propiedades) {
         <small>{propiedades.date}</small>
       </div>
 
-      <button class="secondary-btn">Saldar</button>
+      <button className="secondary-btn">Saldar</button>
     </li>
   );
 }

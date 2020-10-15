@@ -2,7 +2,7 @@ import React from "react";
 
 function Saving(propiedades) {
   return (
-    <li class="saving">
+    <li className="saving">
       <div>
         <h4>{propiedades.name}</h4>
         <small>
@@ -13,13 +13,13 @@ function Saving(propiedades) {
           </b>
         </small>
       </div>
-      <div class="bottom-saving-items">
+      <div className="bottom-saving-items">
         <input
-          class="saving-input"
+          className="saving-input"
           type="number"
           placeholder="Entrada o salida"
         />
-        <button class="secondary-btn">OK</button>
+        <button className="secondary-btn">OK</button>
       </div>
     </li>
   );
