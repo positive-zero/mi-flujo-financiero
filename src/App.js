@@ -24,7 +24,7 @@ function App() {
   async function addMovement() {
     try {
       const newMovement = {
-        concept: conceptValue,
+        name: conceptValue,
         amount: amountValue,
       };
       const movementJSON = JSON.stringify(newMovement);
