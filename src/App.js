@@ -48,13 +48,23 @@ function App() {
     }
   }
 
-  function deleteMovement(movement) {
-    let movementsCopy = [...movements];
-    const indexToDelete = movementsCopy.findIndex(
-      (m) => m.name === movement.name
-    );
-    movementsCopy.splice(indexToDelete, 1);
-    setMovements(movementsCopy);
+  async function deleteMovement(movement) {
+    try {
+      const res = await fetch(
+        "https://miflujofinanciero.herokuapp.com/movements/" + movement.id,
+        { method: "DELETE" }
+      );
+      const deletedMovement = await res.json();
+      console.log(deletedMovement);
+      let movementsCopy = [...movements];
+      const indexToDelete = movementsCopy.findIndex(
+        (m) => m.name === movement.name
+      );
+      movementsCopy.splice(indexToDelete, 1);
+      setMovements(movementsCopy);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

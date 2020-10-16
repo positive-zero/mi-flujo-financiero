@@ -12,6 +12,7 @@ function Movement(propiedades) {
         className="delete-btn"
         onClick={() =>
           propiedades.onDelete({
+            id: propiedades.id,
             name: propiedades.name,
             amount: propiedades.amount,
           })

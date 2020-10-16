@@ -16,6 +16,7 @@ function MovementsPanel(props) {
         <ul>
           {incomes.map((item) => (
             <Movement
+              id={item.id}
               key={item.name}
               amount={item.amount}
               name={item.name}
@@ -31,6 +32,7 @@ function MovementsPanel(props) {
         <ul>
           {expenses.map((item) => (
             <Movement
+              id={item.id}
               key={item.name}
               amount={item.amount}
               name={item.name}
